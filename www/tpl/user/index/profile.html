@@ -1,0 +1,51 @@
+{inc home.inc.head}
+<body>
+{inc home.inc.menu}
+<div class="band">
+	<div class="w"><h1>{$title}</h1></div>
+</div>
+<div class="w pt">
+	<div class="form pt">
+		<div>昵　　称：<input type="text" name="nickname" value="{$v.nickname}"></div>
+		<div>邮　　箱：<input type="text" name="email" value="{$v.email}"></div>
+		<div>头　　像：<input type="text" name="avatar" value="{$v.avatar}"></div>
+		<div>密　　码：<input type="password" name="password" placeholder="（默认请留空）"></div>
+		<div>密码确认：<input type="password" name="password1"></div>
+		<div class="btn"><input type="submit" value="修改"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[type='submit']").on("click", function(){
+			var nickname = $("input[name='nickname']").val();
+			if(!nickname) return toast('昵称不能为空！');
+
+			var password = $("input[name='password']").val();
+			var password1 = $("input[name='password1']").val();
+			if(password != password1) return toast('两次输入的密码不一致！');
+
+			var email = $("input[name='email']").val();
+			var avatar = $("input[name='avatar']").val();
+			$.ajax({
+				type: 'POST',
+				data: {nickname: nickname, password: password, email: email, avatar: avatar},
+				url: location.href,
+				dataType: 'json',
+				success: function(json){
+					if(json.code === 0){
+						toast('修改成功');
+						setTimeout(function(){
+							 window.parent.hideFrame();
+						}, 1000);
+					}else{
+						toast(json.msg);
+					}
+				},
+				error: function(status){
+					toast(status.statusText);
+				}
+			});
+		});
+	});
+</script>
+{inc home.inc.foot}

@@ -1,0 +1,19 @@
+<div class="head w _hide_">
+	<a href="/" class="logo" title="配置式框架"></a>
+	<ul class="menu">
+		<li><a href="/doc/">文档</a></li>
+		<li><a href="https://github.com/poetbi/boa/releases/" target="_blank">下载</a></li>
+		<li><a href="#">讨论</a></li>
+		<li class="dropdown">
+		{if $_SESSION['user']}
+			<img class="avatar" hspace="10" src="{$_SESSION.user.avatar}" onerror="avatar(this, '{$_SESSION.user.nickname}')">
+			<ul>
+				<li><a href="javascript:showFrame('/index.php?m=user&c=index&a=profile')">修改资料</a></li>
+				<li><a href="/index.php?m=user&c=login&a=logout">退出登录</a></li>
+			</ul>
+		{else}
+			<a href="/index.php?m=user&c=login">登录/注册</a>
+		{/if}
+		</li>
+	</ul>
+</div>

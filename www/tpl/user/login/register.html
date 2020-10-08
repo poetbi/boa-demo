@@ -1,0 +1,99 @@
+{inc home.inc.head}
+<body>
+{inc home.inc.menu}
+<div class="band">
+	<div class="w"><h1>{$title}</h1></div>
+</div>
+<div class="login w">
+	<div class="fl">
+		<div class="form">
+			<div>手　　机：<input type="text" name="mobile"></div>
+			<div>密　　码：<input type="password" name="password"></div>
+			<div>密码确认：<input type="password" name="password1"></div>
+			<div class="vcode">验 证 码 ：<input type="text" name="vcode"><span>发送</span></div>
+			<div class="btn"><input type="submit" value="注册"></div>
+		</div>
+	</div>
+	<div class="fr">
+		{inc inc.third}
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".vcode span").on("click", function(){
+			var obj = $(this);
+			if(obj.attr('number') > 0) return;
+
+			var mobile = $("input[name='mobile']").val();
+			if(!mobile){
+				return toast('手机不能为空！');
+			}else{
+				var res = checkMobile(mobile);
+				if(!res) return toast('手机号不正确！');
+			}
+
+			$.ajax({
+				type: 'POST',
+				data: {mobile: mobile},
+				url: '/index.php?m=user&c=login&a=sendcode',
+				dataType: 'json',
+				headers:{
+					'X-CSRF-TOKEN': '{$token}'
+				},
+				beforeSend: function(){
+					countDown(obj, 90);
+				},
+				success: function(json){
+					if(json.code === 0){
+						toast('发送成功！');
+					}else{
+						toast(json.msg);
+					}
+				},
+				error: function(status){
+					toast(status.statusText);
+				}
+			});
+		});
+
+		$("input[type='submit']").on("click", function(){
+			var mobile = $("input[name='mobile']").val();
+			if(!mobile){
+				return toast('手机不能为空！');
+			}else{
+				var res = checkMobile(mobile);
+				if(!res) return toast('手机号不正确！');
+			}
+
+			var password = $("input[name='password']").val();
+			if(!password) return toast('密码不能为空！');
+
+			var password1 = $("input[name='password1']").val();
+			if(password != password1) return toast('两次输入的密码不一致！');
+
+			var vcode = $("input[name='vcode']").val();
+			if(!vcode) return toast('验证码不能为空！');
+
+			$.ajax({
+				type: 'POST',
+				data: {mobile: mobile, password: password, vcode: vcode},
+				url: location.href,
+				dataType: 'json',
+				success: function(json){
+					if(json.code === 0){
+						toast('注册成功，请登录！');
+						setTimeout(function(){
+							location.href = '/index.php?m=user&c=login';
+						}, 1500);
+					}else{
+						toast(json.msg);
+					}
+				},
+				error: function(status){
+					toast(status.statusText);
+				}
+			});
+		});
+	});
+</script>
+{inc home.inc.foot}
