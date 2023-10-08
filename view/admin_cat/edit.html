@@ -1,0 +1,22 @@
+{inc inc.head}
+<body>
+<form method="post" action="?m=demo&c=admin_cat&a=act">
+	<table cellspacing="1" cellpadding="10">
+		<tr><th>{$title}</th></tr>
+		<tr>
+			<td><input name="title" placeholder="分类名称" size="44" value="{$v.title}" required></td>
+		</tr>
+		<tr>
+			<td><input name="alias" placeholder="分类别名" size="44" value="{$v.alias}" required></td>
+		</tr>
+		<tr>
+			<td><input name="sort" placeholder="分类排序" value="{$v.sort}" size="44"></td>
+		</tr>
+		<tr align="center">
+			<td><input type="submit" value="提 交"></td>
+		</tr>
+	</table>
+<input name="id" type="hidden" value="{$_GET.id}">
+</form>
+</body>
+</html>

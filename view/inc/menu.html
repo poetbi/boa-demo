@@ -1,0 +1,14 @@
+	<div class="head">
+		<div class="w">
+			<b> {NAME} </b>
+			{list $cat $k $v}
+			<a href="?m=demo&c=index&a=category&id={$k}">{$v}</a>
+			{/list}
+			{if $_SESSION['user']}
+				您好，{$_SESSION.user.user} <a href="?m=demo&c=user">我的后台</a>
+			{else}
+			<a href="?m=demo&c=index&a=reg">注册</a>
+			<a href="?m=demo&c=login">登录</a>
+			{/if}
+		</div>		
+	</div>

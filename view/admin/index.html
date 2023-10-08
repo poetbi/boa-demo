@@ -1,0 +1,22 @@
+{inc inc.head}
+<body class="container">
+	<div class="head">
+		<b>管理后台</b>
+		<select onchange="window.frames['main'].location.href=this.value">
+			<option value="?m=demo&c=admin&a=panel">控制台</option>
+			<option value="?m=demo&c=admin_group">用户组</option>
+			<option value="?m=demo&c=admin_user">用户</option>
+			<option value="?m=demo&c=admin_admin">管理员</option>
+			<option value="?m=demo&c=admin_cat">分类</option>
+			<option value="?m=demo&c=admin_news">文章</option>
+		</select>
+		您好，{$_SESSION.admin.user} 
+		<a href="?m=demo&c=login&a=admin_logout">退出</a>
+	</div>
+	<div class="body">
+		<iframe name="main" src="?m=demo&c=admin&a=panel" width="100%" height="100%" frameborder="0" scrolling="auto"></iframe>
+	</div>
+	<div class="foot"><div>&copy; 2023-2123 <a href="?m=demo">{NAME}</a> 基于boa框架</div></div>
+</div>
+</body>
+</html>

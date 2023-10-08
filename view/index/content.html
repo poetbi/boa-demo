@@ -1,0 +1,20 @@
+{inc inc.head}
+<body class="container">
+	{inc inc.menu}
+	<div class="body">
+		<div class="w">
+		{if !$rs}
+		<div class="info">
+			文章不存在（404）
+		</div>
+		{else}
+			<h1 class="tc">{$rs.title}</h1>
+			<p class="tc">作者：{$rs.user} 时间：{date {@boa.locale.longtime} {$rs.addtime}}</p>
+			<p>{$rs.content}</p>
+		{/if}
+		</div>
+	</div>
+	<div class="foot"><div>&copy; 2023-2123 <a href="?m=demo">{NAME}</a> 基于boa框架</div></div>
+</div>
+</body>
+</html>

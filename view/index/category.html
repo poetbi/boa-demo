@@ -1,0 +1,25 @@
+{inc inc.head}
+<body class="container">
+	{inc inc.menu}
+	<div class="body">
+		<div class="w">
+			<h1 class="tc">{$title}</h1>
+		{if !$list}
+		<div class="info">
+			暂无文章
+		</div>
+		{else}
+			{$i++}
+			<ul>
+			{list $list $v}
+				<li>{$i++}. <a href="?m=demo&c=index&a=content&id={$v.id}">{$v.title}</a>（{date {@boa.locale.longtime} {$v.addtime}}）</li>
+			{/list}
+			</ul>
+			{$page}
+		{/if}
+		</div>
+	</div>
+	<div class="foot"><div>&copy; 2023-2123 <a href="?m=demo">{NAME}</a> 基于boa框架</div></div>
+</div>
+</body>
+</html>

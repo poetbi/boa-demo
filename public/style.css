@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+*{
+	box-sizing: border-box;
+	font-weight: 200;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+html{
+	font-size: 14px;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: #555;
+	font-size: 1rem;
+}
+a{
+	text-decoration: none;
+	color: #e6870c;
+}
+b,th{
+	font-size: 1.5rem;
+}
+table{
+	background: #DDD;
+	min-width: 25%;
+}
+td{
+	background: #FFF;
+}
+tr:hover td{
+	background:#EEE;
+}
+input{
+	padding: 0.5rem 1rem;
+	text-align: center;
+}
+textarea, select{
+	padding: 0.5rem 1rem;
+}
+input[type='submit'], input[type='button']{
+	width: 13rem;
+}
+img.code{
+	height: 2.2rem;
+	vertical-align: top;
+}
+
+.tc{
+	text-align: center
+}
+.container{
+	height: 100vh;
+}
+.container .head{
+	text-align: left;
+	height: 3rem;
+	background: #DDD;
+	width: 100%;
+    line-height: 3rem;
+	overflow: hidden;
+}
+.container .foot{
+	text-align: center;
+	height: 2rem;
+	background: #DDD;
+	width: 100%;
+    line-height: 2rem;
+}
+.container .body{
+	width: 100%;
+	flex: 1;
+	display: flex;
+}
+
+a.btn_perm{
+	color: green;
+	margin-right: 1rem
+}
+
+a.btn_del{
+	color: red;
+	margin-left: 1rem
+}
+.w{
+	width: 85.7rem;
+	margin: auto;
+}
+.head .w a{
+	display: inline-block;
+	line-height: 3rem;
+	padding: 0 1.5rem;
+}
+
+.info{
+	border:solid 1px #CCC; width:40rem;margin:auto;text-align:center;padding:1rem;
+}
+.menu{
+	clear: both;
+}
+.menu a{
+	display: block;
+	width: 33.3%;
+	text-align: center;
+	float: left;
+	margin: 2rem 0;
+	position: relative;
+}
+.menu img{
+	height: 5rem;
+    display: block;
+    margin: auto;
+	padding: 1rem 0;
+}
+.menu .new::before{
+	display: block;
+	content: " ";
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.5rem;
+	background-color: #F47676;
+	position: absolute;
+	left: 66%;
+	top: 6%;
+}
+.alert{
+	color: #888;
+    font-size: 0.9rem;
+    border: dashed 1px #888;
+    margin: 8rem 0 3rem 0;
+    padding: 1rem;
+	zoom: 0.9;
+}
+.pages{
+	margin: 1rem;
+	padding: 0;
+	text-align: center;
+	list-style: none;
+}
+.pages li{
+	display: inline-block;
+    margin: 0 0.5rem;
+}

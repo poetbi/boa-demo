@@ -1,0 +1,32 @@
+{inc inc.head}
+<body>
+	<div class="body">
+	<form method="post" action="?m=demo&c=index&a=reg_act">
+		<table cellspacing="1" cellpadding="10">
+			<tr><th>{$title}</th></tr>
+			<tr>
+				<td><input name="user" placeholder="用户名" size="44" required></td>
+			</tr>
+			<tr>
+				<td><input name="pass" placeholder="密码" size="44" type="password" required></td>
+			</tr>
+			<tr>
+				<td><input name="pass2" placeholder="密码确认" size="44" type="password" required></td>
+			</tr>
+			<tr align="center">
+				<td><input name="sex" value="1" type="radio"> 男 &nbsp; &nbsp; &nbsp; 
+				<input name="sex" value="0" type="radio"> 女 </td>
+			</tr>
+			<tr>
+				<td><input name="email" placeholder="Email" size="44" required></td>
+			</tr>
+			<tr align="center">
+				<td>
+				<input type="submit" value="提 交">
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</body>
+</html>

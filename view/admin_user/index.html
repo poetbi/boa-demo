@@ -1,0 +1,20 @@
+{inc inc.head}
+<body>
+	<h1 class="tc">{$title}</h1>
+	<table cellspacing="1" cellpadding="10">
+		<tr><th>ID</th><th>组名</th><th>用户</th><th>性别</th><th>Email</th><th>注册时间</th><th>操作</th></tr>
+		{list $list $v}
+		<tr align="center">
+			<td>{$v.id}</td>
+			<td>{$v.name}</td>
+			<td>{$v.user}</td>
+			<td>{if {$v.sex} == 1}男{else}女{/if}</td>
+			<td>{$v.email}</td>
+			<td>{date 'Y-m-d H:i:s' {$v.regtime}}</td>
+			<td><a href="?m=demo&c=admin_user&a=edit&id={$v.id}" class="btn_edit">修改</a><a href="?m=demo&c=admin_user&a=del&id={$v.id}" class="btn_del">删除</a></td>
+		</tr>
+		{/list}
+	</table>
+	{$page}
+</body>
+</html>

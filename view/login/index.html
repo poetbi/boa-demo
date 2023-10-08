@@ -1,0 +1,15 @@
+{inc inc.head}
+</head>
+<body>
+	<form method="post" action="{$action}">
+	<div>
+		<h1 class="tc">{$title}</h1>
+		<input type="text" name="user" size="18" placeholder="用户名" value="{$user}" required><br><br>
+		<input type="password" name="pass" size="18" placeholder="{if $pass}{$pass}{else}密码{/if}" required><br><br>
+		<input type="text" name="code" size="6" placeholder="验证码" required><img class="code" src="?m=demo&c=login&a=code" onclick="this.src='?m=demo&c=login&a=code&_='+ Math.random()"><br><br>
+		<input type="hidden" name="goto" value="{$goto}"><br>
+		<input type="submit" value="登 录">
+	</div>
+	</form>
+</body>
+</html>

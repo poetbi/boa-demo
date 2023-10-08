@@ -1,0 +1,28 @@
+{inc inc.head}
+<body>
+<form method="post" action="?m=demo&c=user_news&a=act">
+	<table cellspacing="1" cellpadding="10">
+		<tr><th>{$title}</th></tr>
+		<tr align="center">
+			<td><select name="cid">
+			{list $cat $c}
+			<option value="{$c.id}" {if {$c.id} == {$v.cid}}selected{/if}>{$c.title}</option>
+			{/list}
+			</select></td>
+		</tr>
+		<tr>
+			<td><input name="title" placeholder="标题" size="44" value="{$v.title}" required></td>
+		</tr>
+		<tr>
+			<td><textarea name="content" cols="46" rows="15" placeholder="内容" required>{$v.content}</textarea><br>*仅为演示，这里省去编辑器，仍支持HTML</td>
+		</tr>
+		<tr align="center">
+			<td>
+			<input type="hidden" name="id" value="{$_GET.id}">
+			<input type="submit" value="提 交">
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

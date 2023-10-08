@@ -1,0 +1,19 @@
+{inc inc.head}
+<body class="container">
+	<div class="head">
+		<b>用户后台</b>
+		<select onchange="window.frames['main'].location.href=this.value">
+			<option value="?m=demo&c=user&a=panel">控制台</option>
+			<option value="?m=demo&c=user_user">用户</option>
+			<option value="?m=demo&c=user_news">文章</option>
+		</select>
+		您好，{$_SESSION.user.user} 
+		<a href="?m=demo&c=login&a=user_logout">退出</a>
+	</div>
+	<div class="body">
+		<iframe name="main" src="?m=demo&c=user&a=panel" width="100%" height="100%" frameborder="0" scrolling="auto"></iframe>
+	</div>
+	<div class="foot"><div>&copy; 2023-2123 <a href="?m=demo">{NAME}</a> 基于boa框架</div></div>
+</div>
+</body>
+</html>

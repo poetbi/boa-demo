@@ -1,0 +1,18 @@
+{inc inc.head}
+<body>
+<form method="post" action="?m=demo&c=admin_admin&a=do_perm">
+	<table cellspacing="1" cellpadding="10">
+		<tr><th>{$title}：{$_GET.user}</th></tr>
+		<tr>
+			<td><textarea name="perm" placeholder="设置权限" cols="46" rows="15" required>{$v}</textarea><br>*仅为演示，直接操作PHP文件，没做可视化操作<br>权限表：/www/cfg/perm-demo-{$_GET.user}.php</td>
+		</tr>
+		<tr align="center">
+			<td>
+			<input type="hidden" name="user" value="{$_GET.user}">
+			<input type="submit" value="提 交">
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

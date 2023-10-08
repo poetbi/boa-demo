@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>{@boa.system.error} - {NAME}</title>
+	<meta charset="{CHARSET}">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0">
+	<link href="{WWW_RES}msg.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<dl>
+		<dt>{@boa.system.error}</dt>
+		<dd>
+		{list $msg $k $v}
+			<div class="msg">[{$v.key}] {$v.msg}</div>
+			{if $v['log']}
+				{list {$v.log} $log}
+					<div class="file">@{$log}</div>
+				{/list}
+			{/if}
+		{/list}
+		</dd>
+	</dl>
+</body>
+</html>

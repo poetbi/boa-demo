@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>{@demo.test.jump} - {NAME}</title>
+	<meta charset="{CHARSET}">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0">
+	<link href="{WWW_RES}msg.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<dl class="lost">
+		<dt><h3>
+			{if $tip}{$tip}{/if}
+			{@demo.test.jump}
+			(<span id="time">{$sec}</span>)
+		</h3></dt>
+	</dl>
+<script type="text/javascript">
+	var time = document.getElementById("time");
+	var sec = {$sec};
+	var timer = setInterval(function(){
+		sec--;
+		if(sec > 0){
+			time.innerHTML = sec;
+		}else{
+			clearInterval(timer);
+			location.href = "{$url}";
+		}
+	}, 1000);
+</script>
+</body>
+</html>

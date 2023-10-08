@@ -1,0 +1,23 @@
+{inc inc.head}
+<body>
+<form method="post" action="?m=demo&c=admin_admin&a=add_act">
+	<table cellspacing="1" cellpadding="10">
+		<tr><th>{$title}</th></tr>
+		<tr>
+			<td><input name="user" placeholder="用户名" size="44" required></td>
+		</tr>
+		<tr>
+			<td><input name="pass" placeholder="密码（留空则首次登录时设置）" size="44" type="password"></td>
+		</tr>
+		<tr>
+			<td><textarea name="memo" cols="46" rows="8" placeholder="说明"></textarea></td>
+		</tr>
+		<tr align="center">
+			<td>
+			<input type="submit" value="提 交">
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

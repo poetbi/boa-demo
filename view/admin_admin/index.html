@@ -1,0 +1,19 @@
+{inc inc.head}
+<body>
+	<h1 class="tc">{$title}（<a href="?m=demo&c=admin_admin&a=add" class="btn_add">添加</a>）</h1>
+	<table cellspacing="1" cellpadding="10">
+		<tr><th>ID</th><th>用户</th><th>说明</th><th>操作</th></tr>
+		{list $list $v}
+		<tr align="center">
+			<td>{$v.id}</td>
+			<td>{$v.user}</td>
+			<td>{$v.memo}</td>
+			<td><a href="?m=demo&c=admin_admin&a=perm&user={$v.user}" class="btn_perm">权限</a>
+			<a href="?m=demo&c=admin_admin&a=edit&id={$v.id}" class="btn_edit">修改</a>
+			<a href="?m=demo&c=admin_admin&a=del&id={$v.id}" class="btn_del">删除</a></td>
+		</tr>
+		{/list}
+	</table>
+	{$page}
+</body>
+</html>
