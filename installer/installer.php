@@ -39,10 +39,10 @@ class installer{
 
 		echo "删除表\n";
 		$str = $this->sql();
-		$arr = preg_match('/CREATE\s+TABLE ([^\(]+)\(/i', $str);
-		foreach($arr as $v){
+		preg_match_all('/CREATE\s+TABLE ([^\(]+)\s*\(/i', $str, $arr);
+		foreach($arr[1] as $v){
 			if($v){
-				$v = trim($v);
+				$v = str_replace('bs_demo_', $db->cfg['prefix'] .'demo_', trim($v));
 				$db->execute("DROP TABLE $v");
 			}
 		}

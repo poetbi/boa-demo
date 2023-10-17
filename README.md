@@ -3,7 +3,7 @@ boaPHP的一个demo，简单完整的示例了框架的常见用法
 
 【安装】
 
-boa框架初始化后，将文件拷贝到/mod/目录下，作为demo模块
+boa框架初始化后，将文件拷贝到/mod/目录下，作为demo模块（/mod/demo/）
 
 在命令行下执行：php boa -i demo
 
