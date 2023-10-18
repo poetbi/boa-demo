@@ -18,7 +18,7 @@ class installer{
 			if($v){
 				$sql .= $v;
 				if(preg_match('/;$/', $v)){
-					$sql = str_replace('bs_demo_', $db->cfg['prefix'] .'demo_', $sql);
+					$sql = str_replace('demo_', $db->cfg['prefix'] .'demo_', $sql);
 					$db->execute($sql);
 					$sql = '';
 				}
@@ -42,7 +42,7 @@ class installer{
 		preg_match_all('/CREATE\s+TABLE ([^\(]+)\s*\(/i', $str, $arr);
 		foreach($arr[1] as $v){
 			if($v){
-				$v = str_replace('bs_demo_', $db->cfg['prefix'] .'demo_', trim($v));
+				$v = str_replace('demo_', $db->cfg['prefix'] .'demo_', trim($v));
 				$db->execute("DROP TABLE $v");
 			}
 		}
