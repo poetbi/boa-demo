@@ -14,15 +14,15 @@ class category implements cacher{
 		$arr = boa::cache()->xget('demo.category');
 	*/
 	public function __construct($args){
+		
+	}
+
+	public function get(){
 		$rs = boa::db()->table('demo_category')->field('id, title')->order('sort ASC, id ASC')->select();
 		foreach($rs as $v){
 			$arr[$v['id']] = $v['title'];
 		}
-		$this->res = $arr;
-	}
-
-	public function get(){
-		return $this->res;
+		return $arr;
 	}
 }
 ?>

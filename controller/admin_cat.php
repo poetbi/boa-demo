@@ -37,6 +37,7 @@ class admin_cat extends controller{
 	
 	public function del(){
 		$this->model->del($this->id);
+		boa::cache()->del('demo.category'); //重建缓存
 		$this->view->jump('?m=demo&c=admin_cat', 3, '操作成功', false);
 	}
 	
@@ -53,6 +54,7 @@ class admin_cat extends controller{
 			$this->model->act($data);
 		}
 
+		boa::cache()->del('demo.category'); //重建缓存
 		$this->view->jump('?m=demo&c=admin_cat', 3, '操作成功', false);
 	}
 }
