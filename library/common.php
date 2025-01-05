@@ -20,7 +20,7 @@ class common{
 		}
 
 		$user = $admin['user'];
-		boa::permission()->validate("demo-$user"); // 验证管理权限
+		boa::permission()->validate("demo-$user", 'da'); // 验证管理权限
 	}
 	
 	/* 检测用户登录、权限 */
